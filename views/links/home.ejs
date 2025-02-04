@@ -1,0 +1,59 @@
+<%- layout('layout/home') %>
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="wp1.jpg" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="Deer_wallpaper.jpg" class="d-block w-100" alt="Slide 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <ul class="list-group mt-3">
+        <% for(let i of Link) { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center bg-light border rounded shadow-sm p-3">
+                <div>
+                    <h5 class="mb-1 text-primary">
+                        <%= i.title %>
+                    </h5>
+                    <small class="text-muted">
+                        <i class="bi bi-tag-fill"></i> Category: <%= i.category %>
+                    </small>
+                </div>
+                <div>
+                    <!-- View Button -->
+                    <a href="<%= i.link %>" class="btn btn-outline-primary btn-sm" target="_blank">
+                        <i class="bi bi-link-45deg"></i> View
+                    </a>
+                    
+                    <!-- Edit Button -->
+                    <a href="/<%= i._id %>/edit" class="btn btn-outline-warning btn-sm">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+    
+                    <!-- Delete Button -->
+                    <form action="/<%= i._id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger btn-sm" >
+                            <i class="bi bi-trash-fill"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </li>      
+        <% } %>
+    </ul>   
+
+    <nav>
+        <ul class="pagination mt-3">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
