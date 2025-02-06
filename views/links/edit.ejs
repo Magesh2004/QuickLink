@@ -1,0 +1,52 @@
+<%- layout('layout/home') %>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 350px;">
+        <h1 class="text-center">Edit page</h1>
+        <form action="/<%= Link._id %>?_method=PUT" method="post">
+          <div class="mb-3">
+            <label for="Title" class="form-label">Enter Title</label>
+            <input type="text" name="title" class="form-control" id="Title" value="<%= Link.title %>" >
+          </div>
+          <div class="mb-3">
+              <label for="category" class="form-label">Select category</label>
+              <select class="form-select" id="category" name="category" >
+                  <% for(let category of Category) {%>
+                <option value="<%= category %>" <%= Link.category == category ? 'selected':'' %>><%= category %></option>
+                <% } %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="link" class="form-label">Enter link</label>
+            <input type="text" class="form-control" id="link" name="link" value="<%=Link.link %>">
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+<%- layout('layout/home') %>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 400px;">
+        <h1 class="text-center">Add a New Link</h1>
+        <form action="/<%= Link._id %>?_method=PUT" method="post">
+          <div class="mb-3">
+            <label for="Title" class="form-label">Enter Title</label>
+            <input type="text" name="title" class="form-control" id="Title" value="<%= Link.title %>" >
+          </div>
+          <div class="mb-3">
+              <label for="category" class="form-label">Select category</label>
+              <select class="form-select" id="category" name="category" >
+                  <% for(let category of Category) {%>
+                <option value="<%= category %>" <%= Link.category == category ? 'selected':'' %>><%= category %></option>
+                <% } %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="link" class="form-label">Enter link</label>
+            <input type="text" class="form-control" id="link" name="link" value="<%=Link.link %>">
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>

@@ -8,10 +8,12 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
 const localPassport = require('passport-local')
+const User = require('./models/user')
 const links = require('./models/link')
-
-
+const ExpressError = require('./utiliti/ExpressError')
+const catchAsync = require('./utiliti/catchAsync')
 const linkRoute = require('./routers/link');
+const userRoute = require('./routers/user')
 
 // app.use('/',userRoute);
 
@@ -30,5 +32,44 @@ app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
+const sessionConfig = {
+    secret : "Thereisasecret",
+    resave : false,
+    saveUninitialized : true,
+    cookie : {
+        httpOnly : true,
+        expires : Date.now()+1000*60*60*24*7,
+        maxAge : 1000*60*60*24*7
+    }
+}
+app.use(session(sessionConfig))
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(new localPassport(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+
+
+
+app.use((req,res,next)=>{
+    res.locals.Category =  ['Personal Document','Land & Property','Vehicle & Transport','Bill & utilities','Goverment Scheme & Welface','Money & banking','Police & Legal','Employment & skill develpment','Education & student services',]
+    res.locals.currentUser = req.user
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next()
+})
 
 app.use('/',linkRoute);
+app.use('/',userRoute)
+
+app.get('*',(req,res,next)=>{
+    next(new ExpressError("Page not found",404))
+})
+
+app.use((err,req,res,next)=>{
+    const {message = "Something went wrong",statusCode = 500} = err;
+    res.status(statusCode).render('error',{err})
+
+})

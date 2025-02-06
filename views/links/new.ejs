@@ -1,28 +1,26 @@
 <%- layout('layout/home') %>
-<form action="/" method="post">
-    <h1>Add a New Link</h1>
-    <div class="mb-3">
-      <label for="Title" class="form-label">Enter Title</label>
-      <input type="text" name="title" class="form-control" id="Title" >
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 400px;">
+        <h1 class="text-center">Add a New Link</h1>
+        <form action="/" class="needs-validation" novalidate method="post">
+            <div class="mb-3">
+                <label for="Title" class="form-label">Enter Title</label>
+                <input type="text" name="title" class="form-control" id="Title" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Select category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <% for(let category of Category) {%>
+                        <option value="<%= category %>"><%= category %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">Enter link</label>
+                <input type="text" class="form-control" id="link" name="link" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
     </div>
-    <div class="mb-3">
-        <label for="category" class="form-label">Select category</label>
-        <select class="form-select" id="category" name="category">
-          <option value="Personal Document" selected>Personal Document</option>
-          <option value="Land & Property">Land & Property</option>
-          <option value="Vehicle & Transport">Vehicle & Transport</option>
-          <option value="Bill & utilities">Bill & utilities</option>
-          <option value="Goverment Scheme & Welfare">Goverment Scheme & Welfare</option>
-          <option value="Money & banking">Money & banking</option>
-          <option value="Police & Legal">Police & Legal</option>
-          <option value="Employment & skill development">Employment & skill development</option>
-          <option value="Education & student services">Education & student services</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="link" class="form-label">Enter link</label>
-      <input type="text" class="form-control" id="link" name="link" aria-describedby="linkHelp">
-      <div id="linkHelp" class="form-text">You can add more link later !.</div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form> 
+</div>

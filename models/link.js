@@ -8,10 +8,10 @@ const linkSchema = mongoose.Schema({
         type : String,
         enum : ['Personal Document','Land & Property','Vehicle & Transport','Bill & utilities','Goverment Scheme & Welface','Money & banking','Police & Legal','Employment & skill develpment','Education & student services',]
     },
-    link : [{
+    link : {
         type : String,
         required : true
-    }]
+    }
     // ,
     // authur : {
     //     type : mongoose.Schema.Types.ObjectId,
