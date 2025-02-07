@@ -122,111 +122,27 @@ module.exports = [
     { title: 'Apply for TN Bus Pass', category: 'Vehicle & Transport', link: 'https://www.tnstc.in' },
     { title: 'Apply for TN Self-Employment Scheme', category: 'Goverment Scheme & Welface', link: 'https://www.tn.gov.in/knowtamilnadu/self-employment' },
     { title: "TNPSC Group 1 Exam",category: "Education & student services", link: "https://www.tnpsc.gov.in/notification.html"},
-        { 
-            title: "TANCET 2025 Registration",
-            category: "Education & student services",
-            link: "https://www.annauniv.edu/tancet2025"
-        },
-        { 
-            title: "TN 12th Result Portal",
-            category: "Education & student services",
-            link: "https://www.dge.tn.gov.in"
-        },
-        { 
-            title: "Tamil Nadu Open University Admission",
-            category: "Education & student services",
-            link: "https://www.tnou.ac.in"
-        },
-        { 
-            title: "TNSCERT Textbook Download",
-            category: "Education & student services",
-            link: "https://www.tnschools.gov.in"
-        },
-        { 
-            title: "Tamil Nadu School Education Recruitment",
-            category: "Education & student services",
-            link: "https://www.tnpsc.gov.in"
-        },
-        { 
-            title: "Tamil Nadu State Scholarship Portal",
-            category: "Education & student services",
-            link: "https://www.tnscholarship.org"
-        },
-        { 
-            title: "National Eligibility Test (NET) Tamil Nadu",
-            category: "Education & student services",
-            link: "https://www.natboard.edu.in"
-        },
-        { 
-            title: "TNEA 2025 Application",
-            category: "Education & student services",
-            link: "https://www.tneaonline.org"
-        },
-        { 
-            title: "Scholarships for Tamil Nadu Students",
-            category: "Education & student services",
-            link: "https://www.tnscholarships.in"
-        },
-        { 
-            title: "TN Government Education Loan",
-            category: "Education & student services",
-            link: "https://www.tn.gov.in/scholarship"
-        },
-        { 
-            title: "Tamil Nadu Teachers Recruitment Board",
-            category: "Education & student services",
-            link: "https://www.trb.tn.nic.in"
-        },
-        { 
-            title: "TN Higher Education Commission",
-            category: "Education & student services",
-            link: "https://www.tnhedc.gov.in"
-        },
-        { 
-            title: "Tamil Nadu Student Health Scheme",
-            category: "Education & student services",
-            link: "https://www.tnhealth.org"
-        },
-        { 
-            title: "Tamil Nadu Rural Education Fund",
-            category: "Education & student services",
-            link: "https://www.ruraleducation.tn.gov.in"
-        },
-        { 
-            title: "Tamil Nadu State Council for Higher Education",
-            category: "Education & student services",
-            link: "https://www.tnscer.org"
-        },
-        { 
-            title: "Tamil Nadu University Admissions",
-            category: "Education & student services",
-            link: "https://www.annauniv.edu"
-        },
-        { 
-            title: "TNPSC Group 2 Exam",
-            category: "Education & student services",
-            link: "https://www.tnpsc.gov.in/notification.html"
-        },
-        { 
-            title: "Kongu Arts & Science College Admissions",
-            category: "Education & student services",
-            link: "https://www.kongu.edu"
-        },
-        { 
-            title: "Tamil Nadu Medical Colleges List",
-            category: "Education & student services",
-            link: "https://www.tnhealth.org"
-        },
-        { 
-            title: "TN School Scholarship Scheme",
-            category: "Education & student services",
-            link: "https://www.scholarships.tn.gov.in"
-        },
-        { 
-            title: "Tamil Nadu Engineering Admissions (TNEA) 2025",
-            category: "Education & student services",
-            link: "https://www.tneaonline.org"
-        }    
+    { title: "TANCET 2025 Registration",category: "Education & student services",link: "https://www.annauniv.edu/tancet2025"},
+    { title: "TN 12th Result Portal",category: "Education & student services",link: "https://www.dge.tn.gov.in"},
+    { title: "Tamil Nadu Open University Admission",category: "Education & student services",link: "https://www.tnou.ac.in"},
+    { title: "TNSCERT Textbook Download",category: "Education & student services",link: "https://www.tnschools.gov.in"},
+    { title: "Tamil Nadu School Education Recruitment",category: "Education & student services",link: "https://www.tnpsc.gov.in"},
+    { title: "Tamil Nadu State Scholarship Portal",category: "Education & student services",link: "https://www.tnscholarship.org"},
+    { title: "National Eligibility Test (NET) Tamil Nadu",category: "Education & student services",link: "https://www.natboard.edu.in"},
+    { title: "TNEA 2025 Application",category: "Education & student services",link: "https://www.tneaonline.org"},
+    { title: "Scholarships for Tamil Nadu Students",category: "Education & student services",link: "https://www.tnscholarships.in"},
+    { title: "TN Government Education Loan",category: "Education & student services",link: "https://www.tn.gov.in/scholarship"},
+    { title: "Tamil Nadu Teachers Recruitment Board",category: "Education & student services",link: "https://www.trb.tn.nic.in"},
+    { title: "TN Higher Education Commission",category: "Education & student services",link: "https://www.tnhedc.gov.in"},
+    { title: "Tamil Nadu Student Health Scheme",category: "Education & student services",link: "https://www.tnhealth.org"},
+    { title: "Tamil Nadu Rural Education Fund",category: "Education & student services",link: "https://www.ruraleducation.tn.gov.in"},
+    { title: "Tamil Nadu State Council for Higher Education",category: "Education & student services",link: "https://www.tnscer.org"},
+    { title: "Tamil Nadu University Admissions",category: "Education & student services",link: "https://www.annauniv.edu"},
+    { title: "TNPSC Group 2 Exam",category: "Education & student services",link: "https://www.tnpsc.gov.in/notification.html"},
+    { title: "Kongu Arts & Science College Admissions",category: "Education & student services",link: "https://www.kongu.edu"},
+    { title: "Tamil Nadu Medical Colleges List",category: "Education & student services",link: "https://www.tnhealth.org"},
+    { title: "TN School Scholarship Scheme",category: "Education & student services",link: "https://www.scholarships.tn.gov.in"},
+    { title: "Tamil Nadu Engineering Admissions (TNEA) 2025",category: "Education & student services",link: "https://www.tneaonline.org"}    
 ];
 
 

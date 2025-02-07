@@ -7,10 +7,13 @@ const ExpressError = require('../utiliti/ExpressError')
 
 
 router.get('/',isLoggedIn,catchAsync(async(req,res)=>{
-    let {category}= req.query
+    let {category,search}= req.query
     category = category ? decodeURIComponent(category) : null;
+    search = search ? decodeURIComponent(search) : null;
     let Link
-    if (category){
+    if (search){
+        Link = await links.find({title : {$regex: search, $options: 'i'}})
+    }else if(category){
         Link = await links.find({category: category})
     }else{
         Link = await links.find({})

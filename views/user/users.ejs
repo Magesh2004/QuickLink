@@ -1,0 +1,35 @@
+<%- layout('layout/home') %>
+
+<ul class="list-group mt-3" id="linkList">
+    <% for(let i of users) { %> 
+        <li class="list-group-item d-flex justify-content-between align-items-center bg-white border rounded shadow-sm p-3">
+            <div class="d-flex align-items-center">
+                <img src="https://ui-avatars.com/api/?name=<%= i.username %>&background=random&color=fff&size=50" 
+                     alt="Profile" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                
+                <div>
+                    <% if(i.isAdmin){ %>
+                        <span class="badge bg-danger text-white mb-1">ADMIN</span>
+                    <% } else { %>
+                        <span class="badge bg-secondary text-white mb-1">USER</span>
+                    <% } %>
+                    
+                    <h5 class="mb-1 text-dark fw-bold">
+                        <%= i.username %>
+                    </h5>
+                    
+                    <small class="text-muted">
+                        <i class="bi bi-envelope-fill"></i> <%= i.email %>
+                    </small>
+                </div>
+            </div>
+        
+            <!-- Delete Button -->
+            <form action="/users/<%= i._id %>?_method=DELETE" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">
+                    <i class="bi bi-trash-fill"></i> Delete
+                </button>
+            </form>
+        </li>
+    <%}%> 
+</ul>

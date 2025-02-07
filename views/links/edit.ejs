@@ -1,52 +1,32 @@
 <%- layout('layout/home') %>
+<link rel="stylesheet" href="/stylesheet/form.css">
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-4 shadow-lg" style="width: 350px;">
-        <h1 class="text-center">Edit page</h1>
-        <form action="/<%= Link._id %>?_method=PUT" method="post">
-          <div class="mb-3">
-            <label for="Title" class="form-label">Enter Title</label>
-            <input type="text" name="title" class="form-control" id="Title" value="<%= Link.title %>" >
-          </div>
-          <div class="mb-3">
-              <label for="category" class="form-label">Select category</label>
-              <select class="form-select" id="category" name="category" >
-                  <% for(let category of Category) {%>
-                <option value="<%= category %>" <%= Link.category == category ? 'selected':'' %>><%= category %></option>
-                <% } %>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="link" class="form-label">Enter link</label>
-            <input type="text" class="form-control" id="link" name="link" value="<%=Link.link %>">
-          </div>
-          <button type="submit" class="btn btn-primary">Update</button>
+    <div class="card p-4 shadow-lg rounded-3" style="width: 450px; background-color: #f8f9fa;">
+        <h1 class="text-center text-dark mb-4" style="font-size: 2.5rem; font-weight: 600;">Edit Link</h1>
+        
+        <form action="/<%= Link._id %>?_method=PUT" class="needs-validation" novalidate method="post">
+            <div class="mb-4">
+                <label for="Title" class="form-label fs-5 text-muted">Enter Title</label>
+                <input type="text" name="title" class="form-control form-control-lg p-3" id="Title" value="<%= Link.title %>" required placeholder="Link title">
+            </div>
+
+            <div class="mb-4">
+                <label for="category" class="form-label fs-5 text-muted">Select Category</label>
+                <select class="form-select form-select-lg p-3" id="category" name="category" required>
+                    <% for(let category of Category) {%>
+                        <option value="<%= category %>" <%= Link.category == category ? 'selected':'' %>><%= category %></option>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="link" class="form-label fs-5 text-muted">Enter Link</label>
+                <input type="url" class="form-control form-control-lg p-3" id="link" name="link" value="<%= Link.link %>" required placeholder="https://example.com">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-3 fs-5 fw-bold">Update</button>
         </form>
     </div>
 </div>
-<%- layout('layout/home') %>
 
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-4 shadow-lg" style="width: 400px;">
-        <h1 class="text-center">Add a New Link</h1>
-        <form action="/<%= Link._id %>?_method=PUT" method="post">
-          <div class="mb-3">
-            <label for="Title" class="form-label">Enter Title</label>
-            <input type="text" name="title" class="form-control" id="Title" value="<%= Link.title %>" >
-          </div>
-          <div class="mb-3">
-              <label for="category" class="form-label">Select category</label>
-              <select class="form-select" id="category" name="category" >
-                  <% for(let category of Category) {%>
-                <option value="<%= category %>" <%= Link.category == category ? 'selected':'' %>><%= category %></option>
-                <% } %>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="link" class="form-label">Enter link</label>
-            <input type="text" class="form-control" id="link" name="link" value="<%=Link.link %>">
-          </div>
-          <button type="submit" class="btn btn-primary">Update</button>
-        </form>
-    </div>
-</div>
