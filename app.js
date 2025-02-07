@@ -8,7 +8,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
 const localPassport = require('passport-local')
-const User = require('./models/user')
+const User = require('./models/user.js')
 const links = require('./models/link')
 const ExpressError = require('./utiliti/ExpressError')
 const catchAsync = require('./utiliti/catchAsync')
@@ -55,7 +55,7 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use((req,res,next)=>{
     res.locals.Category =  ['Personal Document','Land & Property','Vehicle & Transport','Bill & utilities','Goverment Scheme & Welface','Money & banking','Police & Legal','Employment & skill develpment','Education & student services',]
-    res.locals.currentUser = req.user
+    res.locals.currentUser = req.user || {}
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next()

@@ -37,7 +37,7 @@
                     <a href="<%= i.link %>" class="btn btn-outline-primary btn-sm" target="_blank">
                         <i class="bi bi-link-45deg"></i> View
                     </a>
-                    <% if(currentUser) {%>
+                    <% if(currentUser.isAdmin) {%>
                     <!-- Edit Button -->
                     <a href="/<%= i._id %>/edit" class="btn btn-outline-warning btn-sm">
                         <i class="bi bi-pencil-square"></i> Edit

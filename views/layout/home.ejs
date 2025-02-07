@@ -67,11 +67,11 @@
             </div>
         </nav>
         <!-- admin nav -->
-        <% if(currentUser){ %>
+        <% if(currentUser.isAdmin){ %>
         <nav class="navbar bg-body-tertiary">
             <form class="container-fluid justify-content-start">
               <a class="btn btn-outline-success me-2" type="button" href="/new">Add Link</a>
-              <a class="btn btn-outline-success me-2" type="button" href="/register">Add Admin</a>
+              <a class="btn btn-outline-success me-2" type="button" href="/register">Add User</a>
             </form>
           </nav>
           <% } %>
