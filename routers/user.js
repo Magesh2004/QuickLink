@@ -56,6 +56,11 @@ router.delete('/users/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     res.redirect('/users')
 }))
 
-
+router.put('/users/:id/access',async(req,res)=>{
+    const user = await User.findByIdAndUpdate(req.params,{sAdmin:true})
+})
+router.put('/users/:id/revoke',async(req,res)=>{
+    const user = await User.findByIdAndUpdate(req.params,{isAdmin:false})
+})
 
 module.exports = router

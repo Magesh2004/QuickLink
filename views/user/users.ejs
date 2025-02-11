@@ -23,7 +23,18 @@
                     </small>
                 </div>
             </div>
-        
+            <!-- grant access -->
+            <form action="/users/<%= i._id %>/access?_method=PUT" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-trash-fill"></i> Grant admin
+                </button>
+            </form>
+            <!-- revoke access -->
+            <form action="/users/<%= i._id %>/revoke?_method=PUT" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-trash-fill"></i> Revoke access
+                </button>
+            </form>
             <!-- Delete Button -->
             <form action="/users/<%= i._id %>?_method=DELETE" method="POST" class="d-inline">
                 <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure?')">
