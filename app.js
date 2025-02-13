@@ -61,8 +61,10 @@ app.use((req,res,next)=>{
     res.locals.error = req.flash('error');
     next()
 })
-
-app.use('/',linkRoute);
+app.get('/',(req,res)=>{
+    res.render('home')
+})
+app.use('/link',linkRoute);
 app.use('/',userRoute)
 
 app.get('*',(req,res,next)=>{

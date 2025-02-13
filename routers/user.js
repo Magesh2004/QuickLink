@@ -22,7 +22,7 @@ router.route('/register')
             req.flash('success','User added successfully');
         }
         
-        res.redirect('/')
+        res.redirect('/link')
     }))
 
 
@@ -32,7 +32,7 @@ router.route('/login')
     })
     .post(passport.authenticate('local',{failureFlash:true,failureRedirect:'/login'}),async(req,res,next)=>{
         req.flash('success','Welcome back');
-        res.redirect('/')
+        res.redirect('/link')
     })
 
 router.get('/logout',(req,res)=>{
@@ -41,7 +41,7 @@ router.get('/logout',(req,res)=>{
             return next(err)
         }
         req.flash('error','Good bye !')
-        res.redirect('/login')
+        res.redirect('/')
     })
 })
 
