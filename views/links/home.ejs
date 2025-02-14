@@ -39,12 +39,12 @@
                     </a>
                     <% if(currentUser.isAdmin) {%>
                     <!-- Edit Button -->
-                    <a href="/<%= i._id %>/edit" class="btn btn-outline-warning btn-sm">
+                    <a href="link/<%= i._id %>/edit" class="btn btn-outline-warning btn-sm">
                         <i class="bi bi-pencil-square"></i> Edit
                     </a>
     
                     <!-- Delete Button -->
-                    <form action="/<%= i._id %>?_method=DELETE" method="POST" class="d-inline">
+                    <form action="link/<%= i._id %>?_method=DELETE" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-outline-danger btn-sm" >
                             <i class="bi bi-trash-fill"></i> Delete
                         </button>

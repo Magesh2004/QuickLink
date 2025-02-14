@@ -29,7 +29,7 @@ router.post('/',isLoggedIn,isAdmin,catchAsync(async (req,res)=>{
     await Link.save()
     req.flash('success','Added successfully');
 
-    res.redirect('/')
+    res.redirect('/link')
 }))
 router.get('/:id/edit',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     const { id } = req.params;
@@ -40,12 +40,12 @@ router.put('/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     const {id} = req.params;
     const Link = await links.findByIdAndUpdate(id,req.body)
     req.flash('success','Edited successfully');
-    res.redirect('/')
+    res.redirect('/link')
 }))
 router.delete('/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     const Link = await links.findByIdAndDelete(req.params.id)
     req.flash('error','Deleted successfully');
-    res.redirect('/')
+    res.redirect('link/')
 }))
 
 
