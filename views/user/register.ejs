@@ -3,7 +3,7 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-lg rounded-3" style="width: 400px; background-color: #f8f9fa;">
-        <h1 class="text-center mb-4" style="font-size: 2.5rem; font-weight: 600;">Add Admin</h1>
+        <h1 class="text-center mb-4" style="font-size: 2.5rem; font-weight: 600;">Register</h1>
 
         <form action="/register" method="post">
             <div class="mb-4">
@@ -19,11 +19,6 @@
             <div class="mb-4">
                 <label for="password" class="form-label fs-5 text-muted">Enter Password</label>
                 <input type="password" class="form-control form-control-lg p-3" id="password" name="password" required placeholder="Enter a secure password">
-            </div>
-
-            <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="checkbox" name="isAdmin" value="true">
-                <label class="form-check-label fs-5 text-muted" for="checkbox">Add as an Admin</label>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 py-3 fs-5 fw-bold">Submit</button>

@@ -8,7 +8,7 @@ module.exports.isLoggedIn = (req,res,next)=>{
 }
 
 module.exports.isAdmin = (req,res,next)=>{
-    if(!req.user.isAdmin){
+    if(!req.user || !req.user.isAdmin){
         req.flash('error','Access Denied')
         return res.redirect('/')
     }

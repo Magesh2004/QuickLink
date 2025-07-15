@@ -2,18 +2,22 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user.js')
 const passport = require('passport')
-const catchAsync = require('../utiliti/catchAsync')
-const {isLoggedIn,isAdmin} = require('../utiliti/middleware')
+const catchAsync = require('../utils/catchAsync')
+const {isLoggedIn,isAdmin} = require('../utils/middleware')
 
 router
 
 router.route('/register')
-    .get(isLoggedIn,isAdmin,(req,res)=>{
+    .get((req,res)=>{
         res.render('user/register')
     })
-    .post(isLoggedIn,isAdmin,catchAsync(async(req,res,next)=>{
+    .post(catchAsync(async(req,res,next)=>{
         const {username,password,email} = req.body
-        const isAdmin = req.body.isAdmin === "true"
+        let isAdmin = true;
+        // If the current user is an admin and is adding a user, allow the toggle
+        if (req.user && req.user.isAdmin && typeof req.body.isAdmin !== 'undefined') {
+            isAdmin = req.body.isAdmin === "true";
+        }
         const user = new User ({username,email,isAdmin})
         const registerUser = await User.register(user,password)
         if(isAdmin){
@@ -21,7 +25,6 @@ router.route('/register')
         }else{
             req.flash('success','User added successfully');
         }
-        
         res.redirect('/link')
     }))
 
@@ -35,8 +38,8 @@ router.route('/login')
         res.redirect('/link')
     })
 
-router.get('/logout',(req,res)=>{
-    req.logOut(function(err){
+router.get('/logout',(req,res,next)=>{
+    req.logout(function(err){
         if(err){
             return next(err)
         }
@@ -57,10 +60,10 @@ router.delete('/users/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
 }))
 
 router.put('/users/:id/access',async(req,res)=>{
-    const user = await User.findByIdAndUpdate(req.params,{sAdmin:true})
+    const user = await User.findByIdAndUpdate(req.params.id,{isAdmin:true})
 })
 router.put('/users/:id/revoke',async(req,res)=>{
-    const user = await User.findByIdAndUpdate(req.params,{isAdmin:false})
+    const user = await User.findByIdAndUpdate(req.params.id,{isAdmin:false})
 })
 
 module.exports = router

@@ -10,8 +10,8 @@ const passport = require('passport')
 const localPassport = require('passport-local')
 const User = require('./models/user.js')
 const links = require('./models/link')
-const ExpressError = require('./utiliti/ExpressError')
-const catchAsync = require('./utiliti/catchAsync')
+const ExpressError = require('./utils/ExpressError')
+const catchAsync = require('./utils/catchAsync')
 const linkRoute = require('./routers/link');
 const userRoute = require('./routers/user')
 
@@ -24,9 +24,6 @@ db.on('error',console.error.bind(console,"Connection error"));
 db.once('open',function(){
     console.log("Database Connected");
 })
-app.listen(8000,(req,res)=>{
-    console.log("Server running on port 8000")
-});
 app.engine('ejs',ejsmate)
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
@@ -55,7 +52,7 @@ passport.deserializeUser(User.deserializeUser())
 
 
 app.use((req,res,next)=>{
-    res.locals.Category =  ['Personal Document','Land & Property','Vehicle & Transport','Bill & utilities','Goverment Scheme & Welface','Money & banking','Police & Legal','Employment & skill develpment','Education & student services',]
+    res.locals.Category =  ['Personal Document','Land & Property','Vehicle & Transport','Bill & Utilities','Government Scheme & Welfare','Money & Banking','Police & Legal','Employment & Skill Development','Education & Student Services']
     res.locals.currentUser = req.user || {}
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -74,5 +71,9 @@ app.get('*',(req,res,next)=>{
 app.use((err,req,res,next)=>{
     const {message = "Something went wrong",statusCode = 500} = err;
     res.status(statusCode).render('error',{err})
-
 })
+
+// Move app.listen to the end and fix callback signature
+app.listen(8000,()=>{
+    console.log("Server running on port 8000")
+});

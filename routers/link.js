@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const links = require('../models/link')
-const {isLoggedIn,isAdmin} = require('../utiliti/middleware')
-const catchAsync = require('../utiliti/catchAsync')
-const ExpressError = require('../utiliti/ExpressError')
+const {isLoggedIn,isAdmin} = require('../utils/middleware')
+const catchAsync = require('../utils/catchAsync')
+const ExpressError = require('../utils/ExpressError')
 
 
 router.get('/',isLoggedIn,catchAsync(async(req,res)=>{
@@ -25,10 +25,14 @@ router.get('/new',isLoggedIn,isAdmin,(req,res)=>{
     res.render('links/new')
 })
 router.post('/',isLoggedIn,isAdmin,catchAsync(async (req,res)=>{
-    const Link = new links(req.body) 
-    await Link.save()
+    const { title, category, link } = req.body;
+    if (!title || !category || !link) {
+        req.flash('error', 'All fields are required.');
+        return res.redirect('/link/new');
+    }
+    const Link = new links({ title, category, link });
+    await Link.save();
     req.flash('success','Added successfully');
-
     res.redirect('/link')
 }))
 router.get('/:id/edit',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
@@ -38,14 +42,15 @@ router.get('/:id/edit',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
 }))
 router.put('/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     const {id} = req.params;
-    const Link = await links.findByIdAndUpdate(id,req.body)
+    const { title, category, link } = req.body;
+    const Link = await links.findByIdAndUpdate(id, { title, category, link }, { new: true, runValidators: true });
     req.flash('success','Edited successfully');
     res.redirect('/link')
 }))
 router.delete('/:id',isLoggedIn,isAdmin,catchAsync(async(req,res)=>{
     const Link = await links.findByIdAndDelete(req.params.id)
     req.flash('error','Deleted successfully');
-    res.redirect('link/')
+    res.redirect('/link')
 }))
 
 
