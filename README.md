@@ -77,15 +77,5 @@
 
 ---
 
-## 🚀 Future Improvements
-
-* Tamil language support
-* Bookmarking frequently used links
-* Usage analytics (most clicked links, user activity)
-* Support for more service categories
-* Cleaner admin dashboard with charts and summaries
-
----
-
 **Author:** Magesh Balram  
 📧 **Email:** [mageshbalram@gmail.com](mailto:mageshbalram@gmail.com) 
