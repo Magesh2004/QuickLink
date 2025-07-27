@@ -13,13 +13,13 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <h4><a class="text-black" href="/">Quick Link <i class="bi bi-box"></i></a></h4>
+        <h4><a class="text-black" href="/link">Quick Link <i class="bi bi-box"></i></a></h4>
         <% for(let nav of Category) {%>
             <a class="btn btn-light d-flex align-items-center" href="/link?category=<%=encodeURIComponent(nav) %>">
                 <i class="bi bi-tag-fill me-2"></i> <%= nav %>
             </a>
         <% } %>
-        <a class="btn btn-danger text-light d-flex align-items-center" href="/">
+        <a class="btn btn-danger text-light d-flex align-items-center" href="/link">
             <i class="bi bi-x-circle me-2"></i> Clear Category
         </a>
     </div>
@@ -45,7 +45,7 @@
         <% if(currentUser.isAdmin){ %>
         <nav class="navbar bg-white p-3 mt-3 rounded shadow-sm">
             <div class="container-fluid">
-                <a class="btn btn-outline-success me-2" href="link/new"><i class="bi bi-plus-circle"></i> Add Link</a>
+                <a class="btn btn-outline-success me-2" href="/link/new"><i class="bi bi-plus-circle"></i> Add Link</a>
                 <a class="btn btn-outline-primary me-2" href="/register"><i class="bi bi-person-plus-fill"></i> Add User</a>
                 <a class="btn btn-success me-2" href="/users"><i class="bi bi-people-fill"></i> Manage Users</a>
             </div>

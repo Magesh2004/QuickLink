@@ -11,7 +11,7 @@
 }
 
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-image.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/hero-image.png') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -62,6 +62,19 @@ footer a:hover {
             </div>
         </div>
     </nav>
+    <!-- Alerts -->
+        <% if(success && success.length) {%>
+            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <%= success%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
+        <% if(error && error.length) {%>
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <%= error%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <% } %>
 
     <!-- Hero Section -->
     <header class="hero-section text-center text-white">
