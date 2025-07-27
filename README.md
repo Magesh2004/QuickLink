@@ -76,6 +76,9 @@
 5. Visit `http://localhost:PORT`
 
 ---
+## 🎥 Project Demo – QuickLink
+
+[![Watch the Demo](https://img.youtube.com/vi/rBk0y-5uShk/maxresdefault.jpg)](https://www.youtube.com/watch?v=rBk0y-5uShk)
 
 **Author:** Magesh Balram  
 📧 **Email:** [mageshbalram@gmail.com](mailto:mageshbalram@gmail.com) 
