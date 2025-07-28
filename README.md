@@ -76,16 +76,9 @@
 5. Visit `http://localhost:PORT`
 
 ---
+## 🎥 Project Demo – QuickLink
 
-## 🚀 Future Improvements
-
-* Tamil language support
-* Bookmarking frequently used links
-* Usage analytics (most clicked links, user activity)
-* Support for more service categories
-* Cleaner admin dashboard with charts and summaries
-
----
+[![Watch the Demo](https://img.youtube.com/vi/rBk0y-5uShk/maxresdefault.jpg)](https://www.youtube.com/watch?v=rBk0y-5uShk)
 
 **Author:** Magesh Balram  
 📧 **Email:** [mageshbalram@gmail.com](mailto:mageshbalram@gmail.com) 
