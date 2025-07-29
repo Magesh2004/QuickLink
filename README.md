@@ -23,6 +23,8 @@
   * Add new users
   * Promote users to admin or revoke roles
   * Delete users
+  * Server-side validation using Joi for input data
+  * Pagination for better performance and scalability
 
 ---
 
@@ -33,6 +35,8 @@
 * **Authentication**: Passport.js (Session-based)
 * **Frontend**: EJS templates + Tailwind CSS
 * **Other tools**: express-session, connect-flash, method-override
+* **Validation**: Joi
+* **Pagination**: Query-based pagination with MongoDB
 
 ---
 

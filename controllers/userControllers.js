@@ -60,12 +60,22 @@ module.exports.DeleteUsers = async(req,res)=>{
 
 
 module.exports.MakeUserAdAdmin = async(req,res)=>{
+    const existAdmin = await User.findById(req.params.id)
+    if(existAdmin.isAdmin){
+        req.flash('error','Already an admin')
+        return res.redirect('/users')
+    }
     const user = await User.findByIdAndUpdate(req.params.id,{isAdmin:true})
     req.flash('success','Made User As Admin');
     res.redirect('/users')
 }
 
 module.exports.RemoveUserAdAdmin = async(req,res)=>{
+    const existAdmin = await User.findById(req.params.id)
+    if(!existAdmin.isAdmin){
+        req.flash('error','Already an user')
+        return res.redirect('/users')
+    }
     const user = await User.findByIdAndUpdate(req.params.id,{isAdmin:false})
     req.flash('success','Revoked User As Admin');
     res.redirect('/users')

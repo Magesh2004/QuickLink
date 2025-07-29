@@ -1,13 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const {isLoggedIn,isAdmin} = require('../utils/middleware')
+const {isLoggedIn,isAdmin} = require('../middleware/middleware')
 const catchAsync = require('../utils/catchAsync')
 const Link = require('../controllers/linkController')
+const {validateLink} = require('../middleware/validate')
+const ExpressError = require('../utils/ExpressError')
 
 
 router.route('/')
     .get(isLoggedIn,catchAsync(Link.GetLink))
-    .post(isLoggedIn,isAdmin,catchAsync(Link.CreateNewLink))
+    .post(isLoggedIn,isAdmin,validateLink(),catchAsync(Link.CreateNewLink))
 
 router.get('/new',isLoggedIn,isAdmin,Link.RenderNewLinkPage)
 

@@ -40,7 +40,12 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-lg rounded-3" style="width: 400px; background-color: #f8f9fa;">
         <h1 class="text-center mb-4" style="font-size: 2.5rem; font-weight: 600;">Register</h1>
-
+        <% if(error && error.length) {%>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= error %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>
         <form action="/register" method="post">
             <div class="mb-4">
                 <label for="username" class="form-label fs-5 text-muted">Enter Username</label>
@@ -58,6 +63,9 @@
             </div>
 
             <button type="submit" class="btn btn-primary w-100 py-3 fs-5 fw-bold">Submit</button>
+            <div class="text-center mt-3">
+                <a href="/">Go to home</a>
+            </div>
         </form>
     </div>
 </div>
